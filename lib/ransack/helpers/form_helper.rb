@@ -135,7 +135,7 @@ module Ransack
         end
 
         def html_options(args)
-          html_options = extract_options_and_mutate_args!(args)
+          html_options = args.any? ? extract_options_and_mutate_args!(args) : @options
           html_options.merge(
             class: [['sort_link'.freeze, @current_dir], html_options[:class]]
                    .compact.join(' '.freeze)
